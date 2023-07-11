@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Custom Dialog</string>
+    <string name="name">Enter your Name:</string>
+    <string name="college">Enter your College:</string>
+</resources>
