@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.jatin.customdialog.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,8 +31,19 @@ class MainActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
         binding.btnClear.setOnClickListener {
-            binding.etName.setText(" ")
-            binding.etCollege.setText(" ")
+            AlertDialog.Builder(this)
+                .setTitle("Are you sure you want to delte:")
+                .setMessage("choose one option")
+                .setPositiveButton("yes"){_,_->
+                    binding.etName.setText(" ")
+                    binding.etCollege.setText(" ")
+                    Toast.makeText(this,"Info deleted",Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("No"){_,_->
+                    Toast.makeText(this,"Info not deleted",Toast.LENGTH_SHORT).show()
+                }
+                .show()
+
         }
 
         }
