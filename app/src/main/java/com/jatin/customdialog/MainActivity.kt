@@ -3,6 +3,7 @@ package com.jatin.customdialog
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnAlert.setOnClickListener {
             var dialog = Dialog(this)
             dialog.setContentView(R.layout.custom_dialog)
+            dialog.getWindow()?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
             dialog.show()
             var etName=dialog.findViewById<EditText>(R.id.et_name)
             var etCollege=dialog.findViewById<EditText>(R.id.et_college)
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this,"Info not deleted",Toast.LENGTH_SHORT).show()
                 }
                 .show()
+
 
         }
 
